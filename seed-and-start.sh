@@ -14,6 +14,15 @@ if [ -d /app/seed-workspace ]; then
   cp -f /app/seed-workspace/SOUL.md "$WORKSPACE/SOUL.md" 2>/dev/null || true
   cp -f /app/seed-workspace/AGENTS.md "$WORKSPACE/AGENTS.md" 2>/dev/null || true
   cp -f /app/seed-workspace/TOOLS.md "$WORKSPACE/TOOLS.md" 2>/dev/null || true
+  cp -f /app/seed-workspace/HEARTBEAT.md "$WORKSPACE/HEARTBEAT.md" 2>/dev/null || true
+
+  # Always keep skill scripts current (state/ is excluded — preserved on volume)
+  SKILL_DST="$WORKSPACE/skills/starkaraoke-monitor"
+  SKILL_SRC="/app/seed-workspace/skills/starkaraoke-monitor"
+  mkdir -p "$SKILL_DST/scripts" "$SKILL_DST/state"
+  cp -f "$SKILL_SRC/SKILL.md" "$SKILL_DST/SKILL.md" 2>/dev/null || true
+  cp -f "$SKILL_SRC/INSTALL.md" "$SKILL_DST/INSTALL.md" 2>/dev/null || true
+  cp -f "$SKILL_SRC/scripts/"*.js "$SKILL_DST/scripts/" 2>/dev/null || true
 
   echo "[seed] Done"
 fi
