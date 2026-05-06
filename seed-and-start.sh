@@ -15,6 +15,8 @@ if [ -d /app/seed-workspace ]; then
   cp -f /app/seed-workspace/AGENTS.md "$WORKSPACE/AGENTS.md" 2>/dev/null || true
   cp -f /app/seed-workspace/TOOLS.md "$WORKSPACE/TOOLS.md" 2>/dev/null || true
   cp -f /app/seed-workspace/HEARTBEAT.md "$WORKSPACE/HEARTBEAT.md" 2>/dev/null || true
+  cp -f /app/seed-workspace/CONTEXT.md "$WORKSPACE/CONTEXT.md" 2>/dev/null || true
+  cp -f /app/seed-workspace/GUARDRAILS.md "$WORKSPACE/GUARDRAILS.md" 2>/dev/null || true
 
   # Always keep skill scripts current (state/ is excluded — preserved on volume)
   SKILL_DST="$WORKSPACE/skills/starkaraoke-monitor"
